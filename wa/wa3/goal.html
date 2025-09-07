@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+h2, p {
+  margin: 10px;
+}
+
+/* nav bar */
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border: 1px solid #9981b9;
+  background-color: #9981b9;
+}
+
+ul.navbar li a {
+  display: block;
+  color: #000000;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.navbar li a:hover:not(.active) {
+  background-color: #72ac96;
+}
+
+ul.navbar li a.active {
+  background-color: #72ac96;
+}
+
+/* goals container */
+.goals-container {
+  background-color: lavender;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+/* goals list */
+.goals-list {
+  list-style-type: square;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.goals-list li {
+  margin-bottom: 15px;
+}
+</style>
+<body>
+    <!-- Nav bar -->
+    <ul class="navbar"> 
+      <li><a href="home.html">Home</a></li>
+      <li><a href="Interests.html">Interest</a></li>
+      <li><a href="goal.html" class="active">Goals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <h1 style="color:rgb(9, 37, 128);">Goals</h1>
+    <h2>Cosmetology</h2>
+
+    <!-- Lavender background container -->
+    <div class="goals-container">
+      <ul class="goals-list">
+        <li><strong>Graduate from CU Boulder</strong> – Finish strong and be proud of the work I put in.</li>
+        <li><strong>Go to Cosmetology School</strong> – Pursue my passion for beauty, hair, and self-expression.</li>
+        <li><strong>Build My Career</strong> – Work at (or eventually own) a salon where I can grow my skills and creativity.</li>
+        <li><strong>Continue Learning</strong> – Take specialized courses in hair coloring, makeup, and skincare to stay ahead in trends.</li>
+        <li><strong>Express Creativity</strong> – Blend my love for art (painting, drawing, anime inspiration) into my cosmetology work.</li>
+        <li><strong>Financial Independence</strong> – Build stability and start saving toward future goals like travel, a car, or a home.</li>
+        <li><strong>Personal Growth</strong> – Stay active, confident, and true to myself while balancing career and self-care.</li>
+        <li><strong>Long-Term Vision</strong> – Maybe open my own beauty studio one day where I can create a welcoming, creative space for clients.</li>
+      </ul>
+    </div>
+</body>
+</html>

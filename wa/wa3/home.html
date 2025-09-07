@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h2, p {
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border: 1px solid #9981b9;
+  background-color: #9981b9;
+}
+
+ul li a {
+  display: block;
+  color: #000000;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover:not(.active) {
+  background-color: #72ac96;
+}
+
+ul li a.active {
+  background-color: #72ac96;
+}
+</style>
+<body>
+    
+<ul> 
+  <li><a href="home.html" class="active">Home</a></li>
+  <li><a href="Interests.html">Interest</a></li>
+  <li><a href="goal.html">Goals</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+
+<h1 style="color: rgb(9, 37, 128);">About Me</h1>
+
+<!-- Flex container for image and About Me box -->
+<div style="display: flex; align-items: flex-start; gap: 20px; margin: 20px;">
+  
+  <!-- Profile image -->
+  <img src="Self.jpg" alt="Girl" style="width: 225px; height: 275px; border-radius: 34%; object-fit: cover;">
+  
+  <!-- Lavender bordered box for About Me -->
+  <div style="background-color: lavender; padding: 15px; width: fit-content; border: 1px solid #9981b9; border-radius: 8px;">
+    <p>Hi, my name is Anastasia, and I’m a senior at CU Boulder majoring in Sociology. My studies focus on people, culture, and the ways society shapes our lives, which has fueled my curiosity about human behavior and social change. Beyond academics, I’m deeply passionate about art, I love drawing, painting, and finding new ways to be creative. Anime and movies inspire me with their storytelling, while fitness and running keep me grounded and active. I also enjoy exploring new ideas, meeting new people, and taking on experiences that push me to grow personally and artistically.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
