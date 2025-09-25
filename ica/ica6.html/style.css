@@ -20,20 +20,25 @@
 .gallery-grid {
   grid-area: main;
   display: grid;
+  border: 2px solid red;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
-
-.photo-card {
-  background: lightgray;
-  height: 200px;
-}
-
-.featured {
-  height: 300px;
-  grid-column: span 2;
-}
-
 .gallery-sidebar {
   grid-area: sidebar;
 }
+.featured {
+  grid-column: span 2;
+  height: 300px;
+}
+
+.photo-card {
+  border: 1px solid black;
+  background: rgb(149, 114, 114);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

@@ -14,7 +14,7 @@ filterButtons.forEach(button => {
 function filterPhotos(category) {
   photoCards.forEach(card => {
     if (category === 'all' || card.dataset.category === category) {
-      card.style.display = 'block';
+      card.style.display = '';   // <-- important change
     } else {
       card.style.display = 'none';
     }
