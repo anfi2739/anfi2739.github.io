@@ -1,6 +1,4 @@
-// main.js
-// Implements: nav toggle (your code), live search (input), apply filters (click), contrast preference (click + keydown)
-// Uses querySelector / addEventListener; includes keyboard accessibility and progressive enhancement.
+
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ===== NAV TOGGLE (keeps your original logic) ===== */
@@ -39,10 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ===== LIVE SEARCH (input event) =====
-     Applies only on pages that have #resource-search and .resource-item elements.
-     Progressive: When JS disabled, the form will still submit to server (if provided).
-  */
+  
   const searchInput = document.querySelector('#resource-search');
   const resourceList = document.querySelectorAll('.resource-item');
   if (searchInput) {
@@ -56,10 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ===== APPLY FILTERS (click event) =====
-     Reads checked checkboxes inside #filter-area and filters resource items.
-     Gives visible feedback on button while applying.
-  */
+  
   const applyBtn = document.querySelector('#apply-filters');
   const filterArea = document.querySelector('#filter-area');
 
@@ -95,10 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     applyBtn.addEventListener('click', applyHandler);
   }
 
-  /* ===== KEYBOARD SHORTCUTS and ESC handling (keydown event) =====
-     - 'p' focuses first filter control
-     - Escape closes mobile nav if open (accessible escape)
-  */
+  
   document.addEventListener('keydown', (e) => {
     if (e.key.toLowerCase() === 'p' && filterArea && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
       e.preventDefault();
