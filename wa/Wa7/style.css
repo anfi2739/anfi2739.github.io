@@ -1,0 +1,277 @@
+
+
+/*  Variables  */
+:root {
+  --gap: 16px;
+  --max-width: 1100px;
+  --accent: #8b0000;
+  --bg: #ffffff;
+  --fg: #222222;
+}
+
+/*  Global Reset  */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 16px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+/*  Navigation Bar  */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(144, 2, 2, 0.5);
+  position: relative;
+  z-index: 10;
+}
+.nav-brand {
+  font-weight: 700;
+  color: white;
+  font-size: 1.25rem;
+}
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem;
+}
+.nav-menu a:hover,
+.nav-menu a:focus {
+  background-color: #917e7e;
+  border-radius: 5px;
+  outline: none;
+}
+
+/*  Nav Toggle (Mobile Burger Button)  */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 4px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/*  User Controls (Theme + Contrast + Data)  */
+.user-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 1rem auto;
+  background: #f4f4f4;
+  border-radius: 6px;
+  padding: 1rem;
+  max-width: 700px;
+  text-align: center;
+}
+.user-controls h2 {
+  flex-basis: 100%;
+  margin: 0 0 0.5rem;
+  color: #222;
+}
+.user-controls button {
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #ef73da;
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.user-controls button:hover {
+  background: #52f776;
+}
+.user-controls label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/*  Theme Styles  */
+body.light {
+  background: #ffffff;
+  color: #222;
+}
+body.dark {
+  background: #121212;
+  color: #c82929;
+}
+body.dark .nav-menu a {
+  color: #ffffff;
+}
+
+/*  High Contrast Mode  */
+:root[data-contrast="high"] {
+  --bg: #000000;
+  --fg: #ff00b3;
+  --accent: #00ff2a;
+}
+:root[data-contrast="high"] body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/*  Layout: Resource Grid  */
+.site-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: var(--gap);
+}
+.resource-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 300px;
+  grid-template-areas:
+    "res-header res-header res-header"
+    "filters results map"
+    "res-footer res-footer res-footer";
+  gap: var(--gap);
+}
+.res-header {
+  grid-area: res-header;
+  padding: 8px 0;
+}
+.filters {
+  grid-area: filters;
+  padding: 12px;
+  background: #f2f2f2;
+  border-radius: 6px;
+}
+.results {
+  grid-area: results;
+  padding: 12px;
+}
+.map {
+  grid-area: map;
+  padding: 12px;
+  background: #eef7ff;
+  border-radius: 6px;
+}
+.res-footer {
+  grid-area: res-footer;
+  text-align: center;
+  padding: 8px;
+  color: #666;
+}
+
+/*  Lists  */
+.resource-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.resource-item {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+}
+.resource-item:focus,
+.nav-menu a:focus,
+button:focus,
+input:focus {
+  outline: 3px solid #2a8;
+  outline-offset: 2px;
+}
+
+/*  Responsive Media Queries  */
+
+/* Small screens: phones (<=450px) */
+@media (width <= 450px) {
+  body {
+    padding: 8px;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(235, 136, 210, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem;
+  }
+  .nav-menu.show {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .resource-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "res-header"
+      "filters"
+      "results"
+      "map"
+      "res-footer";
+  }
+  .filters,
+  .results,
+  .map {
+    padding: 8px;
+  }
+  .user-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Medium screens: tablets (450px–800px) */
+@media (450px <= width <= 800px) {
+  .resource-grid {
+    grid-template-columns: 220px 1fr;
+    grid-template-areas:
+      "res-header res-header"
+      "filters results"
+      "map map"
+      "res-footer res-footer";
+  }
+  .nav-menu {
+    gap: 0.8rem;
+  }
+  .filters {
+    font-size: 0.95rem;
+  }
+  .map {
+    min-height: 200px;
+  }
+}
+
+/* Large screens: desktops (>=1200px) */
+@media (width >= 1200px) {
+  .site-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .resource-grid {
+    grid-template-columns: 280px 1fr 320px;
+  }
+  .nav-menu a {
+    font-size: 1.05rem;
+  }
+  .filters,
+  .map {
+    border-radius: 10px;
+  }
+}

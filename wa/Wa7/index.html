@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wheelhouse Gifts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="nav-brand">Wheelhouse Gifts</div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#giftfinder">Gift Finder</a></li>
+      <li><a href="#occasion">Shop by Occasion</a></li>
+      <li><a href="#recipient">Shop by Recipient</a></li>
+      <li><a href="#custom">Custom Orders</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="preferences.html">Preferences</a></li>
+    </ul>
+  </nav>
+
+  <main class="site-grid resource-grid" id="resource-page">
+    <header class="res-header" role="banner">
+      <h1>Gift Finder</h1>
+      <p class="lead">
+        Filter by category and search keywords to find local gifts and services.
+      </p>
+    </header>
+
+    <aside class="filters" id="filter-area" aria-labelledby="filter-heading">
+      <h2 id="filter-heading">Filters</h2>
+      <form id="filters-form" action="resources.html" method="get">
+        <fieldset>
+          <legend>Category</legend>
+          <label><input type="checkbox" name="category" value="birthday"> Birthday</label><br>
+          <label><input type="checkbox" name="category" value="holiday"> Holiday</label><br>
+          <label><input type="checkbox" name="category" value="romantic"> Romantic</label><br>
+          <label><input type="checkbox" name="category" value="handmade"> Handmade</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Availability</legend>
+          <label><input type="checkbox" name="avail" value="local"> Local (same-day pickup)</label><br>
+          <label><input type="checkbox" name="avail" value="ship"> Ships</label>
+        </fieldset>
+
+        <button id="apply-filters" type="button">Apply Filters</button>
+      </form>
+    </aside>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="search-row">
+        <label for="resource-search">Search resources</label>
+        <input id="resource-search" name="q" type="search" placeholder="e.g. ceramics, wrapping, candle" />
+      </div>
+
+      <section class="resource-list-section">
+        <h2>Results</h2>
+        <ul class="resource-list" id="resource-list">
+          <li class="resource-item" data-category="handmade" data-avail="local" tabindex="0">
+            Clay Studio — Open studio & workshops (handmade)
+          </li>
+          <li class="resource-item" data-category="holiday" data-avail="ship" tabindex="0">
+            Holiday Cookie Basket — Ships nationwide (holiday)
+          </li>
+          <li class="resource-item" data-category="romantic" data-avail="local" tabindex="0">
+            Rose Bouquet — Same-day pickup (romantic)
+          </li>
+          <li class="resource-item" data-category="birthday" data-avail="local" tabindex="0">
+            Board Game Bundle — Local pickup (birthday)
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <aside class="map" aria-hidden="true">
+      <h2>Map</h2>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
