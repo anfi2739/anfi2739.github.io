@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefsToggle = document.getElementById('prefs-toggle');
     const clearBtn = document.getElementById('clear-data');
 
-    // === Theme Buttons (instant change + save) ===
+    //Theme Buttons (instant change + save) 
     if (btnLight) {
       btnLight.addEventListener('click', () => applyTheme('light'));
     }
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnDark.addEventListener('click', () => applyTheme('dark'));
     }
 
-    // === Contrast Toggle (instant change + save) ===
+    // Contrast Toggle (instant change + save) 
     if (prefsToggle) {
       prefsToggle.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-contrast');
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // === Clear All Preferences ===
+    // Clear All Preferences 
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
         if (confirm('Clear all stored preferences and reload the page?')) {
@@ -141,3 +141,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// FORM PERSISTENCE: save as user types, restore on load (respects opt-out)
+const filtersForm = document.getElementById('filters-form');
+const FORM_KEY = 'filtersData_v1';
+
+if (filtersForm) {
+  // restore saved form values
+  const saved = (function() {
+    try { return JSON.parse(localStorage.getItem(FORM_KEY) || 'null'); } catch { return null; }
+  })();
+  if (saved) {
+    Object.keys(saved).forEach(name => {
+      const els = filtersForm.querySelectorAll(`[name="${name}"]`);
+      els.forEach(el => {
+        if (el.type === 'checkbox') {
+          el.checked = Array.isArray(saved[name]) ? saved[name].includes(el.value) : saved[name] === el.value;
+        } else {
+          el.value = saved[name];
+        }
+      });
+    });
+  }
+
+  filtersForm.addEventListener('input', () => {
+    if (userOptOut()) return;
+    const fd = {};
+    new FormData(filtersForm).forEach((v,k) => {
+      if (fd[k]) {
+        // convert to array if multiple values
+        fd[k] = Array.isArray(fd[k]) ? fd[k].concat(v) : [fd[k], v];
+      } else fd[k] = v;
+    });
+    // store with a timestamp object (or reuse your setWithExpiry helper)
+    setWithExpiry(FORM_KEY, fd);
+  });
+}
+

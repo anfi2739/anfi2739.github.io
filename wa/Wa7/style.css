@@ -275,3 +275,15 @@ input:focus {
     border-radius: 10px;
   }
 }
+/* enable container queries for .resource-list-section */
+.resource-list-section { container-type: inline-size; }
+
+/* when the resource list is at least 520px wide, use two columns */
+@container (min-width: 520px) {
+  .resource-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .resource-item { border-radius:6px; background:#fff; }
+}
