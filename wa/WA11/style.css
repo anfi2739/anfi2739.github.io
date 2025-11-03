@@ -1,0 +1,128 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: #c9bd95;
+}
+
+.app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+header {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  padding: 15px;
+  border-bottom: 1px solid #ebebeb;
+  color: #4A2B0F;
+}
+
+.description {
+  text-align: center;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: #333;
+}
+
+.book-display {
+  padding: 20px 50px;
+  min-height: 150px;
+  font-size: 22px;
+  color: #222;
+  text-align: center;
+}
+
+.controls {
+  width: 100%;
+  padding: 20px 50px;
+}
+
+.button {
+  display: block;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
+              0 3px 1px -2px rgba(0,0,0,.2),
+              0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+#js-new-book-button {
+  background-color: #4A2B0F;
+}
+
+#js-new-book-button:hover {
+  background-color: #6d3b0e;
+}
+
+#js-add-favorite-button {
+  background-color: #a8714a;
+}
+
+#js-add-favorite-button:hover {
+  background-color: #94633d;
+}
+
+#js-view-favorites-button {
+  background-color: #8c5e38;
+}
+
+#js-view-favorites-button:hover {
+  background-color: #724a2b;
+}
+
+#js-clear-favorites-button {
+  background-color: #c94f4f;
+}
+
+#js-clear-favorites-button:hover {
+  background-color: #b63e3e;
+}
+
+.favorites {
+  padding: 20px 50px;
+  list-style-type: none;
+}
+
+.favorites li {
+  padding: 5px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  color: #4A2B0F;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    width: 100%;
+  }
+
+  .book-display {
+    font-size: 18px;
+  }
+
+  header {
+    font-size: 24px;
+  }
+}
