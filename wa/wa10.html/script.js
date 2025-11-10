@@ -24,7 +24,7 @@ async function newTrivia() {
         console.error(err);
     }
 }
-
+console.log(data);
 function displayTrivia() {
     const triviaText = document.querySelector("#js-quote-text");
     triviaText.textContent = current.question;

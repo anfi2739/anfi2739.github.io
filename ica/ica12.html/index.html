@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICA-9</title>
+    <style> 
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background: #111;
+
+        }
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: crimson;
+            animation:float 4s ease-in-out infinite, colorShift 6s ease-in-out infinite;
+        }
+        /*Floating up and down animation*/
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-40px);
+            }
+
+        }
+        /*smooth color change animation*/
+        @keyframes colorShift {
+            0%{background: crimson;}
+            25%{background: orange;}
+            50%{background: limegreen;}
+            75%{background: deepskyblue;}
+            100%{background: violet;}
+        }
+        /*accessibility: reduced motion*/
+        @media (prefers-reduced-motion: reduce){
+            .circle{
+                animation: none;
+                background: #888
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+</body>
+</html>
