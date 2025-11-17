@@ -10,9 +10,10 @@ let currentBook = {
   title: "",
   author: "",
   year: "",
+  cover: ""
 };
 
-const endpoint = "https://openlibrary.org/search.json?subject=fantasy+romance&limit=100";
+const endpoint = "https://www.googleapis.com/books/v1/volumes?q=subject:fantasy+romance&maxResults=40";
 
 newBookBtn.addEventListener("click", fetchNewBook);
 addFavBtn.addEventListener("click", addFavoriteBook);
@@ -22,23 +23,21 @@ clearFavBtn.addEventListener("click", clearFavoriteBooks);
 async function fetchNewBook() {
   try {
     const response = await fetch(endpoint);
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
+    if (!response.ok) throw new Error(response.statusText);
 
     const data = await response.json();
-    console.log(data);
-    if (!data.docs || data.docs.length === 0) {
+    if (!data.items || data.items.length === 0) {
       bookText.textContent = "No books found. Try again!";
       return;
     }
 
-    const randomBook = data.docs[Math.floor(Math.random() * data.docs.length)];
-    currentBook.title = randomBook.title || "Unknown Title";
-    currentBook.author = randomBook.author_name
-      ? randomBook.author_name.join(", ")
-      : "Unknown Author";
-    currentBook.year = randomBook.first_publish_year || "Unknown Year";
+    const randomBook = data.items[Math.floor(Math.random() * data.items.length)];
+    const info = randomBook.volumeInfo;
+
+    currentBook.title = info.title || "Unknown Title";
+    currentBook.author = info.authors ? info.authors.join(", ") : "Unknown Author";
+    currentBook.year = info.publishedDate ? info.publishedDate.slice(0, 4) : "Unknown Year";
+    currentBook.cover = info.imageLinks ? info.imageLinks.thumbnail : "";
 
     displayCurrentBook();
   } catch (err) {
@@ -48,7 +47,15 @@ async function fetchNewBook() {
 }
 
 function displayCurrentBook() {
-  bookText.textContent = `"${currentBook.title}" by ${currentBook.author} (${currentBook.year})`;
+  const coverHTML = currentBook.cover
+    ? `<img src="${currentBook.cover}" alt="Cover of ${currentBook.title}" style="max-width:120px; display:block; margin:0 auto 10px;">`
+    : "";
+
+  bookText.innerHTML = `
+    ${coverHTML}
+    <strong>"${currentBook.title}"</strong><br>
+    by ${currentBook.author} (${currentBook.year})
+  `;
 }
 
 function addFavoriteBook() {
@@ -72,9 +79,10 @@ function viewFavoriteBooks() {
     return;
   }
 
-  favorites.forEach((book, index) => {
+  favorites.forEach(book => {
     const li = document.createElement("li");
-    li.textContent = `"${book.title}" by ${book.author} (${book.year})`;
+    const coverHTML = book.cover ? `<img src="${book.cover}" alt="Cover of ${book.title}" style="width:50px; margin-right:10px;">` : "";
+    li.innerHTML = `${coverHTML} <strong>"${book.title}"</strong> by ${book.author} (${book.year})`;
     favoritesList.appendChild(li);
   });
 }
