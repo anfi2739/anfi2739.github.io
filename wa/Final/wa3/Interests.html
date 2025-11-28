@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+      <link rel="stylesheet" href="Style.css">
+      <script src="script.js"></script>
+    <style>
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h2, p {
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border: 1px solid #9981b9;
+  background-color: #9981b9;
+}
+
+ul li a {
+  display: block;
+  color: #000000;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover:not(.active) {
+  background-color: #72ac96;
+}
+
+ul li a.active {
+  background-color: #72ac96;
+}
+
+
+.interests-box {
+  background-color: lavender;
+  padding: 15px;
+  width: fit-content;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.interests-box ul {
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 20px;
+  display: block;
+  border: none;
+  background: none;
+}
+</style>
+</head>
+
+<body>
+    
+    <ul class="navbar"> 
+      <li><a href="home.html">Home</a></li>
+      <li><a href="Interests.html">Interest</a></li>
+      <li><a href="goal.html" class="active">Goals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <h1 style="color: rgb(0, 0, 0);">Interests</h1>
+
+    <div class="interests-box">
+      <ul>
+        <li>Drawing and painting</li>
+        <li>Reading</li>
+        <li>Anime</li>
+        <li>Movies like Deadpool</li>
+        <li>Fitness and Running</li>
+        
+      </ul>
+    </div>
+    <!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 7</div>
+    <img src="GirlDrawing.jpg" style="width:100%">
+    
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 7</div>
+    <img src="Naruto.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 7</div>
+    <img src="MouthEye.png" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 7</div>
+    <img src="Falling.png" style="width:100%">
+  </div>
+<div class="mySlides fade">
+    <div class="numbertext">5 / 7</div>
+    <img src="FaceHand.png" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">6 / 7</div>
+    <img src="Eyes.png" style="width:100%">
+  </div>
+<div class="mySlides fade">
+    <div class="numbertext">7 / 7</div>
+    <img src="Boy.png" style="width:100%">
+  </div>
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+  
+</body>
+</html>
